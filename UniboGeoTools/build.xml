@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="build" name="Create Jar for Project Elevation-API">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="build">
+        <jar destfile="./elevation-api_v0.1.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="./bin"/>
+        </jar>
+    </target>
+     <target name="build_with_dep">
+        <jar destfile="./elevation-api_v0.1.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="./bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="./libs/Apache-HTTP/fluent-hc-4.2.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="./libs/Apache-HTTP/httpmime-4.2.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="./libs/Apache-HTTP/commons-logging-1.1.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="./libs/Apache-HTTP/httpclient-cache-4.2.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="./libs/Apache-HTTP/httpcore-4.2.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="./libs/Apache-HTTP/commons-codec-1.6.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="./libs/Apache-HTTP/httpclient-4.2.1.jar"/>
+        </jar>
+    </target>
+</project>

@@ -1,0 +1,24 @@
+http://open.mapquestapi.com/elevation/v1/profile?
+callback=handleHelloWorldResponse
+&shapeFormat=raw
+&latLngCollection=39.740112,-104.984856,39.799438,-105.72361,39.6403,-106.373596
+
+{"shapePoints":[39.740112,-104.984856,39.799438,-105.72361,39.6403,-106.373596],
+ "elevationProfile":[
+ 			{"distance":0,"height":1616},
+ 			{"distance":63.55,"height":3911},
+ 			{"distance":121.96,"height":2501}],
+ 			"info":
+ 				{"copyright":
+ 					{"text":"© 2013 MapQuest, Inc.",
+ 					 "imageUrl":"http://api.mqcdn.com/res/mqlogo.gif",
+ 					 "imageAltText":"© 2013 MapQuest, Inc."},
+ 					 "statuscode":0,
+ 					 "messages":[]}}
+ 					 
+callback         - This is not a parameter for the service, but for the Javascript to display the results below.
+shapeFormat      - Represents the input and output format for the shape points.
+inFormat         - Specifies the format of the request.
+latLngCollection - Collection of lat/lng pairs which may be in raw or compressed format.
+width            - Width of the elevation chart measured in pixels.
+height           - Height of the elevation chart measured in pixels.
