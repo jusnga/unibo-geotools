@@ -1,0 +1,15 @@
+interface ElevationAPI
+
+float                  getElevation(float lat,float lon)
+void                   setElevation(AdvancedGeoPoint point)
+float[]                getElevation(float[][] points)
+List<AdvancedGeoPoint> setElevation(List<AdvancedGeoPoint> points)
+List<AdvancedGeoPoint> getElevation(String polyline)
+
+AbstractWebServiceElevation implements Elevation API
+
+String                 buildUrl(float lat,float lon)
+String                 buildUrl(String polyline)
+String 				   buildUrl(String polyline)
+
+InputStream            getInputStream(String url)

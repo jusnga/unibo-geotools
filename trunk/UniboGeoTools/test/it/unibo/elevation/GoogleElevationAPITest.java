@@ -1,0 +1,105 @@
+package it.unibo.elevation;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import it.unibo.elevation.google.GoogleElevationAPI;
+import it.unibo.entity.GeoPoint;
+import it.unibo.util.Polylines;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Test;
+
+public class GoogleElevationAPITest {
+
+	private GoogleElevationAPI api;
+
+	// Coordinates of Porta San Donato
+	private double latitude = 44.49809709;
+	private double longitude = 11.35488510;
+	private List<GeoPoint> bolognaPoints;
+	private List<GeoPoint> marzabottoVadoPoints;
+	private String marzabottoVadoPolyline;
+
+	public GoogleElevationAPITest() throws Exception {
+		api = new GoogleElevationAPI();
+		bolognaPoints = new ArrayList<GeoPoint>();
+		marzabottoVadoPoints = new ArrayList<GeoPoint>();
+
+		double bolognaLatNord = 44.49932150;
+		double bolognaLongSud = 11.32690430;
+
+		double marzabottoLatNord = 44.34398494;
+		double marzabottoLongSud = 11.20330811;
+
+		// gives a line along Bologna
+		GeoPoint p = null;
+		for (int i = 0, j = 0; i < 50; i++, j++) {
+			p = new GeoPoint(bolognaLatNord - (i * 0.0001), bolognaLongSud + (j * 0.0003));
+			bolognaPoints.add(p);
+		}
+
+		for (int i = 0, j = 0; i < 50; i++, j++) {
+			p = new GeoPoint(marzabottoLatNord - (i * 0.0002), marzabottoLongSud + (j * 0.0005));
+			marzabottoVadoPoints.add(p);
+		}
+
+		marzabottoVadoPolyline = Polylines.encode(marzabottoVadoPoints);
+		System.out.println(marzabottoVadoPolyline);
+	}
+
+	@Test
+	public void testGetElevationDoubleDouble() throws Exception {
+		double elevation = api.getElevation(latitude, longitude);
+		assertEquals("fails on:" + elevation, 55, elevation, 1.0);// > 54 && elevation < 56);
+	}
+
+	@Test
+	public void testGetElevationGeoPoint() throws Exception {
+		GeoPoint p = new GeoPoint(latitude, longitude);
+		double elevation = api.getElevation(p);
+		assertEquals("fails on:" + elevation, 55, elevation, 1.0);
+	}
+
+	@Test
+	public void testSetElevation() throws Exception {
+		GeoPoint p = new GeoPoint(latitude, longitude);
+		api.setElevation(p);
+		double elevation = p.getElevation();
+		assertEquals("fails on:" + elevation, 55, elevation, 1.0);
+	}
+
+	@Test
+	public void testGetElevationsListOfGeoPoint() throws Exception {
+		List<GeoPoint> newPoints = api.getElevations(bolognaPoints);
+		for (GeoPoint p : newPoints) {
+			double elevation = p.getElevation();
+			assertTrue("fails on:" + elevation, (elevation > 54) && (elevation < 76));
+		}
+	}
+
+	@Test
+	public void testSetElevations() throws Exception {
+		api.setElevations(bolognaPoints);
+		for (GeoPoint p : bolognaPoints) {
+			double elevation = p.getElevation();
+			assertTrue("fails on:" + elevation, (elevation > 50) && (elevation < 76));
+		}
+	}
+
+	@Test
+	public void testGetElevationsString() throws Exception {
+		List<GeoPoint> newPoints = api.getElevations(marzabottoVadoPolyline);
+		double max = 0;
+
+		for (GeoPoint p : newPoints) {
+			double elevation = p.getElevation();
+			assertTrue("fails on:" + elevation, (elevation > 120) && (elevation < 570));
+			if (elevation > max) {
+				max = elevation;
+			}
+		}
+		assertTrue("fails on max:" + max, (max > 258) && (max < 260));
+	}
+}
