@@ -15,16 +15,16 @@ import java.util.List;
  */
 public class ElevationInfo {
 
-	public static final double DEFAULT_THREASHOLD = 2;
+	public static final double DEFAULT_THRESHOLD = 2;
 
 	private double downhill;
 	private double uphill;
 	private double flat;
 
-	private double totalDownhill;
-	private double totalUphill;
-	private double totalFlat;
-	private double totalDrop;
+	private double cumulativeDownhillOffset;
+	private double cumulativeUphillOffset;
+	private double flatSectionMarginalOffset;
+	private double estimatedTotalOffsetInAltitude;
 
 	private double averageDownhillSlope;
 	private double averageUphillSlope;
@@ -42,7 +42,7 @@ public class ElevationInfo {
 	private int precision;
 
 	public ElevationInfo(List<GeoPoint> points) {
-		this(points, DEFAULT_THREASHOLD);
+		this(points, DEFAULT_THRESHOLD);
 	}
 
 	public ElevationInfo(List<GeoPoint> points, double threshold) {
@@ -100,10 +100,11 @@ public class ElevationInfo {
 		averageFlatMarginalSlope /= flat;
 		averageSlope /= totalDistance;
 
-		totalDownhill = downhill * averageDownhillSlope / 100;
-		totalUphill = uphill * averageUphillSlope / 100;
-		totalFlat = flat * averageFlatMarginalSlope / 100;
-		totalDrop = totalDownhill + totalUphill + totalFlat;
+		cumulativeDownhillOffset = downhill * averageDownhillSlope / 100;
+		cumulativeUphillOffset = uphill * averageUphillSlope / 100;
+		flatSectionMarginalOffset = flat * averageFlatMarginalSlope / 100;
+		//should be the difference between last point and first point
+		estimatedTotalOffsetInAltitude = cumulativeDownhillOffset + cumulativeUphillOffset + flatSectionMarginalOffset;
 	}
 
 	/**
@@ -185,20 +186,20 @@ public class ElevationInfo {
 		return round(totalDistance, precision);
 	}
 
-	public double getTotalDownhill() {
-		return round(totalDownhill, precision);
+	public double getCumulativeDownhillOffset() {
+		return round(cumulativeDownhillOffset, precision);
 	}
 
-	public double getTotalFlat() {
-		return round(totalFlat, precision);
+	public double getFlatSectionMarginalOffset() {
+		return round(flatSectionMarginalOffset, precision);
 	}
 
-	public double getTotalUphill() {
-		return round(totalUphill, precision);
+	public double getCumulativeUphillOffset() {
+		return round(cumulativeUphillOffset, precision);
 	}
 
-	public double getTotalDrop() {
-		return round(totalDrop, precision);
+	public double getEstimatedTotalOffsetInAltitude() {
+		return round(estimatedTotalOffsetInAltitude, precision);
 	}
 
 	public int getPrecision() {

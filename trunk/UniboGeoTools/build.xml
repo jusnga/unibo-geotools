@@ -16,13 +16,6 @@
                 <attribute name="Class-Path" value="."/>
             </manifest>
             <fileset dir="./bin"/>
-            <zipfileset excludes="META-INF/*.SF" src="./libs/Apache-HTTP/fluent-hc-4.2.1.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="./libs/Apache-HTTP/httpmime-4.2.1.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="./libs/Apache-HTTP/commons-logging-1.1.1.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="./libs/Apache-HTTP/httpclient-cache-4.2.1.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="./libs/Apache-HTTP/httpcore-4.2.1.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="./libs/Apache-HTTP/commons-codec-1.6.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="./libs/Apache-HTTP/httpclient-4.2.1.jar"/>
         </jar>
     </target>
 </project>
