@@ -43,8 +43,8 @@ public class ElevtionInfoTest {
 		GeoPoint startMontesole = pointsToMontesole.get(0);
 		GeoPoint endMontesole = pointsToMontesole.get(pointsToMontesole.size() - 1);
 		double totalMontesoleDrop = endMontesole.getElevation() - startMontesole.getElevation();
-		assertTrue(montesoleInfo.getTotalUphill() > montesoleInfo.getTotalDownhill());
-		assertEquals(totalMontesoleDrop, montesoleInfo.getTotalDrop(), 0.000001);
+		assertTrue(montesoleInfo.getCumulativeUphillOffset() > montesoleInfo.getCumulativeDownhillOffset());
+		assertEquals(totalMontesoleDrop, montesoleInfo.getEstimatedTotalOffsetInAltitude(), 0.000001);
 
 		assertTrue(marzabottoInfo.getFlat() > marzabottoInfo.getUphill());
 		assertTrue(marzabottoInfo.getFlat() > marzabottoInfo.getDownhill());
@@ -58,8 +58,8 @@ public class ElevtionInfoTest {
 		GeoPoint startMarzabotto = pointsToMarzabotto.get(0);
 		GeoPoint endMarzabotto = pointsToMarzabotto.get(pointsToMarzabotto.size() - 1);
 		double totalMarzabottoDrop = endMarzabotto.getElevation() - startMarzabotto.getElevation();
-		assertTrue(marzabottoInfo.getTotalFlat() > marzabottoInfo.getTotalDownhill());
-		assertEquals(totalMarzabottoDrop, marzabottoInfo.getTotalDrop(), 0.000001);
+		assertTrue(marzabottoInfo.getFlatSectionMarginalOffset() > marzabottoInfo.getCumulativeDownhillOffset());
+		assertEquals(totalMarzabottoDrop, marzabottoInfo.getEstimatedTotalOffsetInAltitude(), 0.000001);
 
 		montesoleInfo.setPrecision(2);
 
@@ -81,10 +81,10 @@ public class ElevtionInfoTest {
 		System.out.println("average flat: " + info.getAverageFlatMarginalSlope());
 		System.out.println("average slope: " + info.getAverageSlope());
 		System.out.println("-------------------");
-		System.out.println("total downhill: " + info.getTotalDownhill());
-		System.out.println("total uphill: " + info.getTotalUphill());
-		System.out.println("total flat: " + info.getTotalFlat());
-		System.out.println("total drop: " + info.getTotalDrop());
+		System.out.println("total downhill: " + info.getCumulativeDownhillOffset());
+		System.out.println("total uphill: " + info.getCumulativeUphillOffset());
+		System.out.println("total flat: " + info.getFlatSectionMarginalOffset());
+		System.out.println("total drop: " + info.getEstimatedTotalOffsetInAltitude());
 		System.out.println("-------------------");
 		System.out.println("maxDownhillSlope: " + info.getMaxDownhillSlope());
 		System.out.println("maxUphillSlope: " + info.getMaxUphillSlope());
