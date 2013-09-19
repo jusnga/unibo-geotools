@@ -12,6 +12,11 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+/**
+ * 
+ * @author Simone Rondelli - simone.rondelli2@studio.unibo.it
+ *
+ */
 public class GoogleDirectionHandler extends DefaultHandler {
 
 	private static final String ROUTE = "route";

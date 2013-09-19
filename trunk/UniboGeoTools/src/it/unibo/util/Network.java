@@ -9,14 +9,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.protocol.BasicHttpContext;
-import org.apache.http.protocol.HttpContext;
-
+/**
+ * 
+ * @author Simone Rondelli - simone.rondelli2@studio.unibo.it
+ *
+ */
 public class Network {
 
 	/**
@@ -27,13 +24,13 @@ public class Network {
 	 * @throws IllegalStateException
 	 * @throws IOException
 	 */
-	public static InputStream getInputStream(String url) throws IllegalStateException, IOException {
-		HttpClient httpClient = new DefaultHttpClient();
-		HttpContext localContext = new BasicHttpContext();
-		HttpGet httpGet = new HttpGet(url.replaceAll(" ", "%20"));
-		HttpResponse response = httpClient.execute(httpGet, localContext);
-		HttpEntity entity = response.getEntity();
-		return entity.getContent();
+	public static InputStream getInputStream(String urlStr) throws IllegalStateException, IOException {
+		URL url = new URL(urlStr.replaceAll(" ", "%20"));
+	    HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+	    urlConnection.setRequestMethod("GET");
+	    urlConnection.setDoOutput(true);
+	    urlConnection.connect();
+		return urlConnection.getInputStream();
 	}
 
 	/**

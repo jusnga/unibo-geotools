@@ -5,6 +5,11 @@ import it.unibo.elevation.AbstractElevationHandler;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
+/**
+ * 
+ * @author Simone Rondelli - simone.rondelli2@studio.unibo.it
+ *
+ */
 public class MapQuestHandler extends AbstractElevationHandler {
 
 	@Override

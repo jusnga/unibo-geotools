@@ -9,6 +9,11 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+/**
+ * 
+ * @author Simone Rondelli - simone.rondelli2@studio.unibo.it
+ *
+ */
 public abstract class AbstractElevationHandler extends DefaultHandler {
 
 	protected List<GeoPoint> geoPoints;

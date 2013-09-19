@@ -6,7 +6,8 @@ import it.unibo.entity.GeoPoint;
  * Some useful function
  * 
  * @see http://www.movable-type.co.uk/scripts/latlong.html
- * @author mone
+ * 
+ * @author Simone Rondelli - simone.rondelli2@studio.unibo.it
  */
 public class GeoUtil {
 

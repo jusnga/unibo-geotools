@@ -7,6 +7,14 @@ import it.unibo.entity.GeoPoint;
 
 import java.util.List;
 
+/**
+ * 
+ * @deprecated Experimental, currently there are no further developments.
+ * Use instead Google or SRTM implementation
+ * 
+ * @author Simone Rondelli - simone.rondelli2@studio.unibo.it
+ */
+@Deprecated
 public class MapQuestElevationAPI extends AbstractWebElevation {
 
 	public static final String BASE_URL = "http://open.mapquestapi.com/elevation/v1/profile";

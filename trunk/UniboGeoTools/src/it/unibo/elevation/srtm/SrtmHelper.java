@@ -13,7 +13,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.zip.ZipFile;
 
-public class OsmSrtm {
+/**
+ * @see https://code.google.com/p/osmosis-srtm-plugin/source/browse/src/org/srtmplugin/osm/osmosis/SrtmPlugin_task.java
+ *
+ * @author Simone Rondelli - simone.rondelli2@studio.unibo.it
+ */
+public class SrtmHelper {
 
 	private File localDir;
 	private Map<File, SoftReference<BufferedInputStream>> srtmMap;
@@ -21,7 +26,7 @@ public class OsmSrtm {
 	/**
 	 * @param localOnly should only local available files be used? true/false
 	 */
-	public OsmSrtm(File localDir) {
+	public SrtmHelper(File localDir) {
 		this.localDir = localDir;
 		srtmMap = new HashMap<File, SoftReference<BufferedInputStream>>();
 	}

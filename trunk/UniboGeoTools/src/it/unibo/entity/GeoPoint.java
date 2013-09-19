@@ -2,7 +2,8 @@ package it.unibo.entity;
 
 /**
  * 
- * @author Simone Rondelli
+ * @author Simone Rondelli - simone.rondelli2@studio.unibo.it
+ *
  */
 public class GeoPoint {
 

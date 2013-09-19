@@ -5,6 +5,11 @@ import it.unibo.entity.GeoPoint;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * @author Simone Rondelli - simone.rondelli2@studio.unibo.it
+ * 
+ */
 public class Polylines {
 
 	public static List<GeoPoint> decode(String encoded) {

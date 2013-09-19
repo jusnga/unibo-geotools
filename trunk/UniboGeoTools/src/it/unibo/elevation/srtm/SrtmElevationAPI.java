@@ -11,7 +11,7 @@ import java.util.List;
 
 public class SrtmElevationAPI implements ElevationAPI {
 
-	private OsmSrtm osmSrtm;
+	private SrtmHelper osmSrtm;
 
 	/**
 	 * Init the SRTM based ElevationApi
@@ -19,7 +19,7 @@ public class SrtmElevationAPI implements ElevationAPI {
 	 * @param localDir The local folder that contains the .hgt or .zip srtm files
 	 */
 	public SrtmElevationAPI(File localDir) {
-		osmSrtm = new OsmSrtm(localDir);
+		osmSrtm = new SrtmHelper(localDir);
 	}
 
 	@Override

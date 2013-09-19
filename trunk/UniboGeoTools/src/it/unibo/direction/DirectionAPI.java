@@ -5,6 +5,11 @@ import it.unibo.entity.Route;
 
 import java.util.List;
 
+/**
+ * 
+ * @author Simone Rondelli - simone.rondelli2@studio.unibo.it
+ *
+ */
 public interface DirectionAPI {
 
 	public List<Route> getDirectionsBetween(String from, String to) throws Exception;
