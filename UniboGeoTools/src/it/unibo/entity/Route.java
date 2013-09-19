@@ -2,6 +2,11 @@ package it.unibo.entity;
 
 import java.util.List;
 
+/**
+ * 
+ * @author Simone Rondelli - simone.rondelli2@studio.unibo.it
+ *
+ */
 public class Route {
 
 	private List<Leg> legs;

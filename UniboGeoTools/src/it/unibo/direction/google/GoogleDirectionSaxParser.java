@@ -9,6 +9,11 @@ import java.util.List;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+/**
+ * 
+ * @author Simone Rondelli - simone.rondelli2@studio.unibo.it
+ *
+ */
 public class GoogleDirectionSaxParser implements DirectionParser {
 
 	private SAXParser parser;

@@ -9,6 +9,11 @@ import it.unibo.util.Polylines;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * @author Simone Rondelli - simone.rondelli2@studio.unibo.it
+ *
+ */
 public class DirectionUtil {
 	
 	public static List<GeoPoint> getAllRoutePoints(Route route) {

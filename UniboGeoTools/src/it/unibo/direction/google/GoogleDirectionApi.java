@@ -7,10 +7,9 @@ import it.unibo.entity.GeoPoint;
 import java.util.List;
 
 /**
- * http://cesaregerbino.wordpress.com/tag/google-map-api/
+ * @see http://cesaregerbino.wordpress.com/tag/google-map-api/
  * 
- * @author mone
- * 
+ * @author Simone Rondelli - simone.rondelli2@studio.unibo.it
  */
 public class GoogleDirectionApi extends AbstractWebDirection {
 

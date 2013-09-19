@@ -6,6 +6,11 @@ import it.unibo.entity.GeoPoint;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
+/**
+ * 
+ * @author Simone Rondelli - simone.rondelli2@studio.unibo.it
+ *
+ */
 public class GoogleElevationHandler extends AbstractElevationHandler {
 
 	private static final String RESULT = "result";

@@ -16,6 +16,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.zip.ZipFile;
 
+/**
+ * @deprecated Experimental, currently there are no further developments.
+ * Use instead Google or SRTM implementation
+ * 
+ * @author Simone Rondelli - simone.rondelli2@studio.unibo.it
+ */
+@Deprecated
 public class Gdem {
 
 	private static final Logger log = Logger.getLogger(Gdem.class.getName());

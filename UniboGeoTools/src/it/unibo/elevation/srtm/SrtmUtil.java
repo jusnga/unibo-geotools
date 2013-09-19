@@ -9,6 +9,9 @@ import java.io.InputStream;
 import java.net.URL;
 import java.text.NumberFormat;
 
+/**
+ * @author Simone Rondelli - simone.rondelli2@studio.unibo.it
+ */
 public class SrtmUtil {
 
 	public static final String EURASIA = "Eurasia";

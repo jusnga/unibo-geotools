@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Collect some elevation information about a given set of points
  * 
- * @author mone
+ * @author Simone Rondelli - simone.rondelli2@studio.unibo.it
  * 
  */
 public class ElevationInfo {
@@ -100,9 +100,9 @@ public class ElevationInfo {
 		averageFlatMarginalSlope /= flat;
 		averageSlope /= totalDistance;
 
-		totalDownhill =  downhill * averageDownhillSlope /100;
-		totalUphill =  uphill * averageUphillSlope /100;
-		totalFlat =  flat * averageFlatMarginalSlope /100;
+		totalDownhill = downhill * averageDownhillSlope / 100;
+		totalUphill = uphill * averageUphillSlope / 100;
+		totalFlat = flat * averageFlatMarginalSlope / 100;
 		totalDrop = totalDownhill + totalUphill + totalFlat;
 	}
 
@@ -185,7 +185,6 @@ public class ElevationInfo {
 		return round(totalDistance, precision);
 	}
 
-	
 	public double getTotalDownhill() {
 		return round(totalDownhill, precision);
 	}
@@ -197,9 +196,9 @@ public class ElevationInfo {
 	public double getTotalUphill() {
 		return round(totalUphill, precision);
 	}
-	
+
 	public double getTotalDrop() {
-		return totalDrop;
+		return round(totalDrop, precision);
 	}
 
 	public int getPrecision() {

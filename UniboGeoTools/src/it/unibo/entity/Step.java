@@ -1,5 +1,10 @@
 package it.unibo.entity;
 
+/**
+ * 
+ * @author Simone Rondelli - simone.rondelli2@studio.unibo.it
+ *
+ */
 public class Step {
 
 	private GeoPoint startLocation;
